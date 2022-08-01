@@ -78,7 +78,8 @@
   },
   "prettier": {
     "printWidth": 100,
-    "singleQuote": true
+    "singleQuote": true,
+    "jsxSingleQuote": true
   },
   "eslintIgnore": [
     "node_modules"

@@ -25,21 +25,21 @@ const contentVariants = {
 
 export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won }) => {
   return (
-    <div className="pd-submission-banner">
+    <div className='pd-submission-banner'>
       <AnimatePresence>
         <motion.div
           key={competitionName}
-          className="pd-submission-inner"
+          className='pd-submission-inner'
           variants={contentVariants}
-          initial="inactive"
-          animate="active"
-          exit="exit"
+          initial='inactive'
+          animate='active'
+          exit='exit'
         >
-          <h2 className="pd-submission-title">
+          <h2 className='pd-submission-title'>
             {'Submitted to '}
-            <span className="pd-submission-comp-name">{competitionName}</span>
+            <span className='pd-submission-comp-name'>{competitionName}</span>
           </h2>
-          <span className="view-hack">{'VIEW HACKATHON'}</span>
+          <span className='view-hack'>{'VIEW HACKATHON'}</span>
         </motion.div>
       </AnimatePresence>
     </div>

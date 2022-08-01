@@ -58,27 +58,27 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
     <>
       <ProjectBanner competitionName={displayedProject.competitionName} />
 
-      <div className="project-display-wrap">
+      <div className='project-display-wrap'>
         <div>
           <AnimatePresence>
             <motion.div
               key={displayedProject.name}
               variants={textVariants}
-              initial="inactive"
-              animate="active"
-              exit="exit"
+              initial='inactive'
+              animate='active'
+              exit='exit'
               transition={{ bounce: false, duration: 0.7 }}
-              className="pd-content-wrap"
+              className='pd-content-wrap'
             >
-              <h1 className="pd-title">{displayedProject.name}</h1>
+              <h1 className='pd-title'>{displayedProject.name}</h1>
 
-              <p className="pd-desc">{displayedProject.description}</p>
+              <p className='pd-desc'>{displayedProject.description}</p>
 
-              <ProjectStatus status="winner" />
+              <ProjectStatus status='winner' />
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="pd-image-wrap">
+        <div className='pd-image-wrap'>
           <ProjectImage customKey={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
         </div>
       </div>

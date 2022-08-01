@@ -79,7 +79,7 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
           </AnimatePresence>
         </div>
         <div className="pd-image-wrap">
-          <ProjectImage key={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
+          <ProjectImage customKey={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
         </div>
       </div>
     </>

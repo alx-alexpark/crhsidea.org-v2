@@ -1,6 +1,4 @@
 .pd-submission-banner {
-  width: 55vw;
-  height: 150px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 10px rgba(179, 179, 179, 0.473);
   position: absolute;
@@ -8,6 +6,17 @@
   left: 0;
   z-index: 999;
   overflow: hidden;
+
+  height: 120px;
+  width: 100vw;
+
+  @include md {
+    height: 150px;
+  }
+
+  @include lg {
+    width: 65vw;
+  }
 }
 
 .pd-submission-inner {
@@ -18,14 +27,31 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
 
-.pd-submission-title {
-  font-weight: 600;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
+  .pd-submission-title {
+    font-weight: 600;
+    margin-bottom: 10px;
 
-.pd-submission-comp-name {
-  color: #f8b64c;
+    font-size: 1em;
+
+    @include sm {
+      font-size: 1.2em;
+    }
+
+    @include md {
+      font-size: 1.5em;
+    }
+  }
+
+  .pd-submission-comp-name {
+    color: #f8b64c;
+  }
+
+  .view-hack {
+    font-size: 0.8em;
+
+    @include sm {
+      font-size: 1em;
+    }
+  }
 }

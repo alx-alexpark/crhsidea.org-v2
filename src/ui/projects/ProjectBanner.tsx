@@ -39,7 +39,7 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won }) 
             {'Submitted to '}
             <span className="pd-submission-comp-name">{competitionName}</span>
           </h2>
-          <span>{'VIEW HACKATHON'}</span>
+          <span className="view-hack">{'VIEW HACKATHON'}</span>
         </motion.div>
       </AnimatePresence>
     </div>

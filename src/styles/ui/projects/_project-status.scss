@@ -1,13 +1,25 @@
-.project-status {
+.project-status-wrap {
+  div {
+    padding: 10px;
+    width: 100px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    border-radius: 5px;
+  }
+
   font-weight: 500;
   font-size: 0.9em;
   letter-spacing: 0.06em;
-  padding: 10px;
-  width: 100px;
-  height: 13px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: content-box;
-  border-radius: 5px;
+  gap: 10px;
+
+  flex-direction: column;
+
+  @include sm {
+    flex-direction: row;
+    align-items: center;
+  }
 }

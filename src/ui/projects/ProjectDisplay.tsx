@@ -74,16 +74,7 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
 
               <p className="pd-desc">{displayedProject.description}</p>
 
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '15px',
-                  alignItems: 'center',
-                }}
-              >
-                <ProjectStatus status="winner" />
-                <span className="pd-award-name">Best Climate Change Hack</span>
-              </div>
+              <ProjectStatus status="winner" />
             </motion.div>
           </AnimatePresence>
         </div>

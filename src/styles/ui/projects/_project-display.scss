@@ -1,34 +1,80 @@
+@import '../../breakpoints';
+
 .project-display-wrap {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-}
 
+  grid-template-rows: 6fr 4fr;
+
+  @include sm {
+    grid-template-rows: 5fr 5fr;
+  }
+
+  @include xl {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  @include lg {
+    grid-template-columns: 6fr 4fr;
+    grid-template-rows: none;
+  }
+}
 .pd-content-wrap {
   width: 60%;
-  height: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include lg {
+    height: 80%;
+  }
+
+  justify-self: center;
+  align-self: center;
+  height: 100%;
 }
 
 .pd-title {
-  font-size: 5em;
+  font-size: 2em;
+
+  @include sm {
+    font-size: 3em;
+  }
+
+  @include md {
+    font-size: 3.5em;
+  }
+
+  @include lg {
+    font-size: 4em;
+  }
+
+  @include xl {
+    font-size: 5em;
+  }
 }
 
 .pd-desc {
   font-weight: 500;
-  font-size: 1.5em;
   line-height: 1.5em;
   margin: 2em 0;
-}
 
-.pd-award-name {
-  font-weight: 500;
   font-size: 0.9em;
-  letter-spacing: 0.06em;
+
+  @include md {
+    font-size: 1em;
+  }
+
+  @include lg {
+    font-size: 1.2em;
+  }
+
+  @include xl {
+    font-size: 1.5em;
+  }
 }
 
 .pd-image-wrap {

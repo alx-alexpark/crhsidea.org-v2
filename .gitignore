@@ -1,0 +1,11 @@
+.next
+
+.eslintcache
+
+/node_modules
+
+/build
+
+yarn-debug.log*
+yarn-error.log*
+

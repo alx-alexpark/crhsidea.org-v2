@@ -28,13 +28,20 @@ export const LandingPage: FC = () => {
           <p className='lp-p'>Start your CS journey today</p>
 
           <div className='media-wrap'>
+            <Image src='/svgs/remind-logo.svg' alt='' width='40px' height='40px' />
             <Image src='/svgs/github-logo.svg' alt='' width='40px' height='40px' />
             <Image src='/svgs/discord-logo.svg' alt='' width='40px' height='40px' />
           </div>
         </div>
         {!hidePhoneSVG && (
           <div className='phone-wrap'>
-            <Image className='phone' src='/svgs/iphone-12.svg' alt='' layout='fill' />
+            <Image
+              className='phone'
+              src='/svgs/iphone-12.svg'
+              alt=''
+              layout='fill'
+              priority={true}
+            />
           </div>
         )}
 

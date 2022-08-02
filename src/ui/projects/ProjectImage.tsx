@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const variants = {
   inactive: (horz: boolean) => (horz ? { x: '-100%' } : { y: '100%' }),
@@ -13,7 +13,7 @@ const variants = {
 };
 
 export const ProjectImage: FC<{ customKey: string; src: string }> = ({ customKey, src }) => {
-  const toggleHorzImg = useMediaQuery({ maxWidth: 1023 });
+  const toggleHorzImg = useMediaQuery('(max-width: 1023px)');
 
   return (
     <AnimatePresence>

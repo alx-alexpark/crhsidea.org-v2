@@ -1,0 +1,114 @@
+.lp-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-primary;
+
+  .inner {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    row-gap: 50px;
+
+    grid-template-areas:
+      'main main'
+      'stats phone';
+
+    @include lg {
+      grid-template-areas:
+        'main phone'
+        'stats stats';
+    }
+  }
+
+  .main-content {
+    width: 100%;
+    grid-area: main;
+
+    .media-wrap {
+      display: flex;
+      gap: 25px;
+    }
+  }
+
+  .phone-wrap {
+    width: 30vw;
+    grid-area: phone;
+    position: relative;
+  }
+
+  .stat-wrap {
+    grid-area: stats;
+
+    @include lg {
+      display: flex;
+      gap: 5vw;
+    }
+  }
+}
+
+.lp-title {
+  margin-bottom: 15px;
+  font-size: 3em;
+
+  @include md {
+    font-size: 3.5em;
+  }
+
+  @include lg {
+    font-size: 4em;
+  }
+
+  @include xl {
+    font-size: 5em;
+  }
+}
+
+.lp-sub {
+  font-size: 1.5em;
+
+  @include sm {
+    font-size: 2em;
+  }
+
+  @include md {
+    font-size: 2.5em;
+  }
+
+  @include lg {
+    font-size: 3em;
+  }
+
+  @include xl {
+    font-size: 3.5em;
+  }
+}
+
+.highlight {
+  color: $color-highlight;
+}
+
+.lp-p {
+  margin: 40px 0;
+  font-weight: 500;
+  color: $color-text-secondary;
+
+  font-size: 1em;
+
+  @include sm {
+    font-size: 1.1em;
+  }
+
+  @include md {
+    font-size: 1.3em;
+  }
+
+  @include lg {
+    font-size: 1.5em;
+  }
+}

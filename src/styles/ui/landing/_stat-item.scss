@@ -1,0 +1,17 @@
+.stat-item {
+  display: flex;
+  gap: 3vw;
+  align-items: center;
+
+  h3 {
+    font-size: 1.5em;
+    white-space: nowrap;
+    color: $color-highlight;
+  }
+
+  .line {
+    width: 5vw;
+    height: 2.5px;
+    background: $color-highlight;
+  }
+}

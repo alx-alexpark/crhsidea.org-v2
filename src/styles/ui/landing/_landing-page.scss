@@ -13,13 +13,14 @@
     width: 80%;
     margin: auto;
     display: grid;
-    row-gap: 50px;
 
+    row-gap: 40px;
     grid-template-areas:
       'main main'
       'stats phone';
 
     @include lg {
+      row-gap: 70px;
       grid-template-areas:
         'main phone'
         'stats stats';
@@ -40,13 +41,23 @@
     width: 30vw;
     grid-area: phone;
     position: relative;
+    height: 20vh;
+
+    @include lg {
+      height: auto;
+    }
   }
 
   .stat-wrap {
     grid-area: stats;
+    display: flex;
+
+    flex-direction: column;
+    gap: 20px;
+    align-self: end;
 
     @include lg {
-      display: flex;
+      flex-direction: row;
       gap: 5vw;
     }
   }

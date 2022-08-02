@@ -45,7 +45,6 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
   const projectDisplayRef = useRef<HTMLDivElement>(null);
 
   const lockAnimation = !useIsAtScreenTop(projectDisplayRef, 20);
-  console.log(lockAnimation);
 
   const updatePage = useCallback(
     (direction: number) => {

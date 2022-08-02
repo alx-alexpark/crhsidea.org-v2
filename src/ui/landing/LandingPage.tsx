@@ -3,6 +3,7 @@ import { FC, Suspense } from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { RadialGlow } from './RadialGlow';
 import { StatItem } from './StatItem';
+import { TextSwitch } from './TextSwitch';
 
 export const LandingPage: FC = () => {
   const hidePhoneSVG = useMediaQuery('(max-width: 470px)');
@@ -22,8 +23,10 @@ export const LandingPage: FC = () => {
         <div className='main-content'>
           <h1 className='lp-title'>CRHS IDEA</h1>
           <h2 className='lp-sub'>
-            {"Let's "}
-            <span className='highlight'>explore&nbsp;</span>software
+            {"Let's"}&nbsp;
+            <span className='highlight'>
+              <TextSwitch interval={2000} text={['explore', 'create', 'innovate.']} />
+            </span>
           </h2>
           <p className='lp-p'>Start your CS journey today</p>
 

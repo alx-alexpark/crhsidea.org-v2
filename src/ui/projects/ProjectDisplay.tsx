@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ProjectImage } from './ProjectImage';
 import { ProjectBanner } from './ProjectBanner';
 import { wrap } from '../../utils';
+import { useIsAtScreenTop } from '../../hooks/useIsAtScreenTop';
 
 export interface Project {
   name: string;
@@ -36,9 +37,15 @@ const textVariants = {
   },
 };
 
+const AUTO_SLIDE_INTERVAL = 5000;
+
 export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
   const [page, setPage] = useState(0);
   const autoIntervalId = useRef<NodeJS.Timer>();
+  const projectDisplayRef = useRef<HTMLDivElement>(null);
+
+  const lockAnimation = !useIsAtScreenTop(projectDisplayRef, 20);
+  console.log(lockAnimation);
 
   const updatePage = useCallback(
     (direction: number) => {
@@ -47,10 +54,18 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
     [projects]
   );
 
+  const lockablePageUpdate = useCallback(
+    (direction: number) => {
+      setPage((p) => (lockAnimation ? p : wrap(0, projects.length, direction > 0 ? p + 1 : p - 1)));
+    },
+    [projects, lockAnimation]
+  );
+
   useEffect(() => {
-    autoIntervalId.current = setInterval(() => updatePage(1), 10000);
+    lockablePageUpdate(1);
+    autoIntervalId.current = setInterval(() => lockablePageUpdate(1), AUTO_SLIDE_INTERVAL);
     return () => clearInterval(autoIntervalId.current);
-  }, [updatePage]);
+  }, [updatePage, lockablePageUpdate]);
 
   const displayedProject = projects[page];
 
@@ -58,7 +73,7 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
     <>
       <ProjectBanner competitionName={displayedProject.competitionName} />
 
-      <div className='project-display-wrap'>
+      <div className='project-display-wrap' ref={projectDisplayRef}>
         <div>
           <AnimatePresence>
             <motion.div

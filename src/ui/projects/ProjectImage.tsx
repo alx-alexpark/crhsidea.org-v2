@@ -12,7 +12,7 @@ const variants = {
   exit: (horz: boolean) => (horz ? { x: '100%' } : { y: '-100%' }),
 };
 
-export const ProjectImage: FC<{ customKey: string; src: string }> = ({ customKey, src }) => {
+export const ProjectImage: FC<{ customKey: string | null; src: string }> = ({ customKey, src }) => {
   const toggleHorzImg = useMediaQuery('(max-width: 1023px)');
 
   return (

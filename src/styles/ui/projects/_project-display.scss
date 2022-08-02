@@ -1,9 +1,8 @@
-@import '../../breakpoints';
-
 .project-display-wrap {
   width: 100vw;
   height: 100vh;
   display: grid;
+  background-color: #fff;
 
   grid-template-rows: 6fr 4fr;
 
@@ -21,6 +20,7 @@
     grid-template-rows: none;
   }
 }
+
 .pd-content-wrap {
   width: 60%;
   margin: auto;
@@ -28,13 +28,13 @@
   flex-direction: column;
   justify-content: center;
 
-  @include lg {
-    height: 80%;
-  }
-
   justify-self: center;
   align-self: center;
   height: 100%;
+
+  @include lg {
+    height: 80%;
+  }
 }
 
 .pd-title {

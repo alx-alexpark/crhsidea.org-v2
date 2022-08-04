@@ -62,7 +62,6 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
   );
 
   useEffect(() => {
-    lockablePageUpdate(1);
     autoIntervalId.current = setInterval(() => lockablePageUpdate(1), AUTO_SLIDE_INTERVAL);
     return () => clearInterval(autoIntervalId.current);
   }, [updatePage, lockablePageUpdate]);

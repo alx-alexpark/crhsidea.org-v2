@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import { Parallax } from 'react-scroll-parallax';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { LandingPage } from '../ui/landing/LandingPage';
 import { ProjectDisplay } from '../ui/projects/ProjectDisplay';
 
@@ -31,13 +32,20 @@ const HomePage: NextPage = () => {
   //   />
   // );
 
+  const isPhone = useMediaQuery('(max-width: 768px)');
+
   // return <LandingPage />;
 
   return (
     <div>
-      <Parallax speed={-50}>
+      {isPhone ? (
         <LandingPage />
-      </Parallax>
+      ) : (
+        <Parallax speed={-50}>
+          <LandingPage />
+        </Parallax>
+      )}
+
       <Parallax speed={15}>
         <ProjectDisplay
           projects={[

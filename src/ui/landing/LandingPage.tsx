@@ -4,6 +4,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { RadialGlow } from './RadialGlow';
 import { StatItem } from './StatItem';
 import { TextSwitch } from './TextSwitch';
+import Link from 'next/link';
 
 export const LandingPage: FC = () => {
   const hidePhoneSVG = useMediaQuery('(max-width: 470px)');
@@ -31,9 +32,21 @@ export const LandingPage: FC = () => {
           <p className='lp-p'>Start your CS journey today</p>
 
           <div className='media-wrap'>
-            <Image src='/svgs/remind-logo.svg' alt='' width='40px' height='40px' />
-            <Image src='/svgs/github-logo.svg' alt='' width='40px' height='40px' />
-            <Image src='/svgs/discord-logo.svg' alt='' width='40px' height='40px' />
+            <Link href='https://discord.gg/McY7QFHN'>
+              <a>
+                <Image src='/svgs/remind-logo.svg' alt='' width='40px' height='40px' />
+              </a>
+            </Link>
+            <Link href='https://github.com/crhsidea'>
+              <a>
+                <Image src='/svgs/github-logo.svg' alt='' width='40px' height='40px' />{' '}
+              </a>
+            </Link>
+            <Link href='https://discord.gg/McY7QFHN'>
+              <a>
+                <Image src='/svgs/discord-logo.svg' alt='' width='40px' height='40px' />
+              </a>
+            </Link>
           </div>
         </div>
         {!hidePhoneSVG && (

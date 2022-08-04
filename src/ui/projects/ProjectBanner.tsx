@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ProjectBannerProps {
   competitionName: string;
@@ -23,7 +24,7 @@ const contentVariants = {
   },
 };
 
-export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won }) => {
+export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won, competitionURL }) => {
   return (
     <div className='pd-submission-banner'>
       <AnimatePresence>
@@ -39,7 +40,11 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won }) 
             {'Submitted to '}
             <span className='pd-submission-comp-name'>{competitionName}</span>
           </h2>
-          <span className='view-hack'>{'VIEW HACKATHON'}</span>
+          <Link href={competitionURL}>
+            <a>
+              <span className='view-hack'>{'VIEW HACKATHON'}</span>
+            </a>
+          </Link>
         </motion.div>
       </AnimatePresence>
     </div>

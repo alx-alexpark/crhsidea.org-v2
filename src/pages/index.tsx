@@ -50,16 +50,18 @@ const HomePage: NextPage = () => {
               date: new Date(),
               awardName: 'Best Climate Change Hack',
               won: true,
+              competitionURL: 'https://siliconvalleyhacks.devpost.com/',
             },
             {
               name: 'Bot Dilemma',
               description:
-                'A fast and interactive way to learn about the manufacturing of your belongings, and what the you can do to reduce your footprint.',
+                'An interactive, creative, and original way to hangout and chat online. ',
               imgSrc: 'https://crhsidea.org/static/images/Greenway.jpg',
               competitionName: 'Something Hacks',
               date: new Date(),
               awardName: 'Best Hack for Something',
               won: true,
+              competitionURL: 'https://example.com',
             },
           ]}
         />

@@ -14,6 +14,7 @@ export interface Project {
   competitionName: string;
   won?: boolean;
   awardName?: string;
+  competitionURL: string;
 }
 
 export interface ProjectDisplayProps {
@@ -70,7 +71,10 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
 
   return (
     <>
-      <ProjectBanner competitionName={displayedProject.competitionName} />
+      <ProjectBanner
+        competitionName={displayedProject.competitionName}
+        competitionURL={displayedProject.competitionURL}
+      />
 
       <div className='project-display-wrap' ref={projectDisplayRef}>
         <div>

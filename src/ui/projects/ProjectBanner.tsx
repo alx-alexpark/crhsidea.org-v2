@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 interface ProjectBannerProps {
   competitionName: string;
+  competitionURL: string;
   won?: boolean;
 }
 

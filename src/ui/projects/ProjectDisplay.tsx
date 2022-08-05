@@ -69,36 +69,33 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
   const displayedProject = projects[page];
 
   return (
-    <>
+    <div className='project-display-wrap' ref={projectDisplayRef}>
       <ProjectBanner
         competitionName={displayedProject.competitionName}
         competitionURL={displayedProject.competitionURL}
       />
+      <div>
+        <AnimatePresence>
+          <motion.div
+            key={displayedProject.name}
+            variants={textVariants}
+            initial='inactive'
+            animate='active'
+            exit='exit'
+            transition={{ bounce: false, duration: 0.7 }}
+            className='pd-content-wrap'
+          >
+            <h1 className='pd-title'>{displayedProject.name}</h1>
 
-      <div className='project-display-wrap' ref={projectDisplayRef}>
-        <div>
-          <AnimatePresence>
-            <motion.div
-              key={displayedProject.name}
-              variants={textVariants}
-              initial='inactive'
-              animate='active'
-              exit='exit'
-              transition={{ bounce: false, duration: 0.7 }}
-              className='pd-content-wrap'
-            >
-              <h1 className='pd-title'>{displayedProject.name}</h1>
+            <p className='pd-desc'>{displayedProject.description}</p>
 
-              <p className='pd-desc'>{displayedProject.description}</p>
-
-              <ProjectStatus status='winner' />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <div className='pd-image-wrap'>
-          <ProjectImage customKey={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
-        </div>
+            <ProjectStatus status='winner' />
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </>
+      <div className='pd-image-wrap'>
+        <ProjectImage customKey={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
+      </div>
+    </div>
   );
 };

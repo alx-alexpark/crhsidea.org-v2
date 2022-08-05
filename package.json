@@ -20,7 +20,8 @@
     "build": "next build",
     "start": "next start",
     "prepare": "git init && husky install",
-    "lint": "next lint"
+    "lint": "next lint",
+    "types:check": "tsc --skipLibCheck --noEmit"
   },
   "browserslist": {
     "production": [

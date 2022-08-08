@@ -35,17 +35,21 @@
       display: flex;
       gap: 25px;
     }
+
+    .media-svg {
+      width: 40px;
+      height: 40x;
+    }
   }
 
   .phone-wrap {
-    width: 30vw;
     grid-area: phone;
     position: relative;
-    height: 20vh;
+  }
 
-    @include lg {
-      height: auto;
-    }
+  .iphone-svg {
+    max-width: 200px;
+    width: 13vw;
   }
 
   .stat-wrap {

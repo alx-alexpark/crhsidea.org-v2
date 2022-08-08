@@ -5,6 +5,7 @@ import { ProjectImage } from './ProjectImage';
 import { ProjectBanner } from './ProjectBanner';
 import { wrap } from '../../utils';
 import { useIsAtScreenTop } from '../../hooks/useIsAtScreenTop';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 export interface Project {
   name: string;
@@ -41,6 +42,8 @@ const textVariants = {
 const AUTO_SLIDE_INTERVAL = 5000;
 
 export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
+  const isMobile = useMediaQuery('(max-width: 1023px)');
+
   const [page, setPage] = useState(0);
   const autoIntervalId = useRef<NodeJS.Timer>();
   const projectDisplayRef = useRef<HTMLDivElement>(null);
@@ -93,9 +96,11 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className='pd-image-wrap'>
-        <ProjectImage customKey={displayedProject.name + 'image'} src={displayedProject.imgSrc} />
-      </div>
+      <ProjectImage
+        customKey={displayedProject.name + 'image'}
+        src={displayedProject.imgSrc}
+        horizontal={Boolean(isMobile)}
+      />
     </div>
   );
 };

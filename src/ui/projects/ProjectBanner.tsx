@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import { RightArrowIcon } from '../../svgs-components/RightArrow';
 
 interface ProjectBannerProps {
   competitionName: string;
@@ -40,11 +40,10 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({
             {'Submitted to '}
             <span className='pd-submission-comp-name'>{competitionName}</span>
           </h2>
-          <Link href={competitionURL}>
-            <a>
-              <span className='view-hack'>{'VIEW HACKATHON'}</span>
-            </a>
-          </Link>
+          <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
+            <span>{'VIEW HACKATHON'}</span>
+            <RightArrowIcon className='icon' />
+          </a>
         </div>
         <AnimatePresence>
           <motion.div
@@ -76,11 +75,10 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({
             {'Submitted to '}
             <span className='pd-submission-comp-name'>{competitionName}</span>
           </h2>
-          <Link href={competitionURL}>
-            <a>
-              <span className='view-hack'>{'VIEW HACKATHON'}</span>
-            </a>
-          </Link>
+          <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
+            <span>{'VIEW HACKATHON'}</span>
+            <RightArrowIcon className='icon' />
+          </a>
         </motion.div>
       </AnimatePresence>
     )}

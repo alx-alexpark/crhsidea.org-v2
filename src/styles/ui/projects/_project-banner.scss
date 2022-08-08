@@ -48,10 +48,17 @@
   }
 
   .view-hack {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.8em;
 
     @include sm {
       font-size: 1em;
+    }
+
+    .icon {
+      width: 30px;
     }
   }
 }

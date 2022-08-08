@@ -2,7 +2,6 @@ import { CSSProperties, FC } from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { StatItem } from './StatItem';
 import { TextSwitch } from './TextSwitch';
-import Link from 'next/link';
 import { IPhone12Icon } from '../../svgs-components/IPhone12';
 import { GithubLogoIcon } from '../../svgs-components/GithubLogo';
 import { RemindLogoIcon } from '../../svgs-components/RemindLogo';
@@ -42,21 +41,17 @@ export const LandingPage: FC = () => {
           <p className='lp-p'>Start your CS journey today</p>
 
           <div className='media-wrap'>
-            <Link href='https://discord.gg/McY7QFHN' target='_blank'>
-              <a>
-                <RemindLogoIcon className='media-svg' />
-              </a>
-            </Link>
-            <Link href='https://github.com/crhsidea' target='_blank'>
-              <a>
-                <GithubLogoIcon className='media-svg' />
-              </a>
-            </Link>
-            <Link href='https://discord.gg/McY7QFHN' target='_blank'>
+            <a href='https://discord.gg/McY7QFHN' target='_blank' rel='noreferrer'>
+              <RemindLogoIcon className='media-svg' />
+            </a>
+            <a href='https://github.com/crhsidea' target='_blank' rel='noreferrer'>
+              <GithubLogoIcon className='media-svg' />
+            </a>
+            <a href='https://discord.gg/McY7QFHN' target='_blank' rel='noreferrer'>
               <a style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <DiscordLogoIcon className='media-svg' style={{ width: '44px' }} />
               </a>
-            </Link>
+            </a>
           </div>
         </div>
         {!hidePhoneSVG && (

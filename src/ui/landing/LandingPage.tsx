@@ -21,7 +21,7 @@ export const LandingPage: FC = () => {
 
   return (
     <div className='lp-wrap'>
-      {showRadialGlow && (
+      {showRadialGlow === true && (
         <>
           <RadialGlowSVG style={{ top: '-15vw', left: '-10vw', ...radialGlowStyles }} />
           <RadialGlowSVG style={{ top: '-15vw', right: '-10vw', ...radialGlowStyles }} />
@@ -47,14 +47,17 @@ export const LandingPage: FC = () => {
             <a href='https://github.com/crhsidea' target='_blank' rel='noreferrer'>
               <GithubLogoIcon className='media-svg' />
             </a>
-            <a href='https://discord.gg/McY7QFHN' target='_blank' rel='noreferrer'>
-              <a style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <DiscordLogoIcon className='media-svg' style={{ width: '44px' }} />
-              </a>
+            <a
+              href='https://discord.gg/McY7QFHN'
+              target='_blank'
+              rel='noreferrer'
+              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <DiscordLogoIcon className='media-svg' style={{ width: '44px' }} />
             </a>
           </div>
         </div>
-        {!hidePhoneSVG && (
+        {hidePhoneSVG === false && (
           <div className='phone-wrap'>
             <IPhone12Icon className='iphone-svg' screenSrc='/imgs/iphone-screen.png' />
           </div>

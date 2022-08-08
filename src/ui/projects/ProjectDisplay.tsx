@@ -48,6 +48,7 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
   );
 
   useEffect(() => {
+    lockablePageUpdate(1);
     autoIntervalId.current = setInterval(() => lockablePageUpdate(1), AUTO_SLIDE_INTERVAL);
     return () => clearInterval(autoIntervalId.current);
   }, [updatePage, lockablePageUpdate]);
@@ -56,11 +57,6 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
 
   return (
     <div className='project-display-wrap' ref={projectDisplayRef}>
-      <ProjectBanner
-        competitionName={displayedProject.competitionName}
-        competitionURL={displayedProject.competitionURL}
-        horizontal={isMobile}
-      />
       <ProjectContent
         horizontal={isMobile}
         projectDesc={displayedProject.description}
@@ -69,6 +65,11 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
       <ProjectImage
         customKey={displayedProject.name + 'image'}
         src={displayedProject.imgSrc}
+        horizontal={isMobile}
+      />
+      <ProjectBanner
+        competitionName={displayedProject.competitionName}
+        competitionURL={displayedProject.competitionURL}
         horizontal={isMobile}
       />
     </div>

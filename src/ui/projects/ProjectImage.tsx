@@ -3,12 +3,12 @@ import { FC } from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const variants = {
-  inactive: (horz: boolean) => (horz ? { x: '-100%' } : { y: '100%' }),
-  active: (horz: boolean) => ({
+  inactive: (horz: boolean) => (horz ? { x: '-100%' } : { y: '100%', scale: 1.2 }),
+  active: {
     y: 0,
     x: 0,
-    [horz ? 'width' : 'height']: '100%',
-  }),
+    scale: 1,
+  },
   exit: (horz: boolean) => (horz ? { x: '100%' } : { y: '-100%' }),
 };
 
@@ -28,11 +28,11 @@ export const ProjectImage: FC<{ customKey: string | null; src: string }> = ({ cu
           bounce: false,
           duration: 0.85,
           delay: 0.1,
-          height: { delay: 0.95, duration: 0.8 },
+          scale: { delay: 1, duration: 1 },
         }}
         className='pd-image'
         style={{
-          height: toggleHorzImg ? 'auto' : '120%',
+          [toggleHorzImg ? 'width' : 'height']: '100%',
           position: 'absolute',
         }}
         src={src}

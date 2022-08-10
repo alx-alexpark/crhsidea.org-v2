@@ -56,7 +56,6 @@ const projects: Project[] = [
       'https://camo.githubusercontent.com/3efbaea6db3dabbf21790b10f0ea663edeb8e628045e7142ff6693a93a8bd113/68747470733a2f2f6368616c6c656e6765706f73742d73332d6368616c6c656e6765706f73742e6e6574646e612d73736c2e636f6d2f70686f746f732f70726f64756374696f6e2f736f6674776172655f70686f746f732f3030302f3839322f3439302f64617461732f67616c6c6572792e6a7067',
     competitionName: 'INVENTATHON@HCC',
     date: new Date(),
-    awardName: 'Best Climate Change Hack',
     won: true,
     competitionURL: 'https://inventathonhcc.devpost.com/',
   },

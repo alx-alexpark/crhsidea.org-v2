@@ -8,7 +8,7 @@ export const useIsAtScreenTop = (ref: RefObject<HTMLDivElement>, threshold: numb
       const top = ref.current?.getBoundingClientRect().top;
 
       // check if element is on top of the screen
-      if (top && top <= threshold) {
+      if (typeof top != 'undefined' && top <= threshold) {
         setAtTop(true);
       } else {
         setAtTop(false);

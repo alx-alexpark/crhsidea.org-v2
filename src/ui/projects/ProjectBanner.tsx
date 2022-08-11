@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Link from 'next/link';
+import { RightArrowIcon } from '../../svgs-components/RightArrow';
 
 interface ProjectBannerProps {
   competitionName: string;
   competitionURL: string;
+  horizontal: boolean;
   won?: boolean;
 }
 
@@ -25,9 +26,42 @@ const contentVariants = {
   },
 };
 
-export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won, competitionURL }) => {
-  return (
-    <div className='pd-submission-banner'>
+export const ProjectBanner: FC<ProjectBannerProps> = ({
+  competitionName,
+  won,
+  competitionURL,
+  horizontal,
+}) => (
+  <div className='pd-submission-banner'>
+    {horizontal ? (
+      <>
+        <div className='pd-submission-inner'>
+          <h2 className='pd-submission-title'>
+            {'Submitted to '}
+            <span className='pd-submission-comp-name'>{competitionName}</span>
+          </h2>
+          <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
+            <span>{'VIEW HACKATHON'}</span>
+            <RightArrowIcon className='icon' />
+          </a>
+        </div>
+        <AnimatePresence>
+          <motion.div
+            key={competitionName}
+            animate={{ x: '100%' }}
+            transition={{ bounce: false, duration: 1.5 }}
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              backgroundColor: '#fff',
+              top: 0,
+              left: 0,
+            }}
+          />
+        </AnimatePresence>
+      </>
+    ) : (
       <AnimatePresence>
         <motion.div
           key={competitionName}
@@ -41,13 +75,12 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({ competitionName, won, co
             {'Submitted to '}
             <span className='pd-submission-comp-name'>{competitionName}</span>
           </h2>
-          <Link href={competitionURL}>
-            <a>
-              <span className='view-hack'>{'VIEW HACKATHON'}</span>
-            </a>
-          </Link>
+          <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
+            <span>{'VIEW HACKATHON'}</span>
+            <RightArrowIcon className='icon' />
+          </a>
         </motion.div>
       </AnimatePresence>
-    </div>
-  );
-};
+    )}
+  </div>
+);

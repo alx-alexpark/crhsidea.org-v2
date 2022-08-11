@@ -1,10 +1,19 @@
-import Image from 'next/image';
-import { FC, Suspense } from 'react';
+import { CSSProperties, FC } from 'react';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
-import { RadialGlow } from './RadialGlow';
 import { StatItem } from './StatItem';
 import { TextSwitch } from './TextSwitch';
-import Link from 'next/link';
+import { IPhone12Icon } from '../../svgs-components/IPhone12';
+import { GithubLogoIcon } from '../../svgs-components/GithubLogo';
+import { RemindLogoIcon } from '../../svgs-components/RemindLogo';
+import { DiscordLogoIcon } from '../../svgs-components/DiscordLogo';
+import { RadialGlowSVG } from '../../svgs-components/RadialGlow';
+
+const radialGlowStyles: CSSProperties = {
+  position: 'absolute',
+  width: '25vw',
+  height: '30vw',
+  zIndex: 2,
+};
 
 export const LandingPage: FC = () => {
   const hidePhoneSVG = useMediaQuery('(max-width: 470px)');
@@ -12,12 +21,12 @@ export const LandingPage: FC = () => {
 
   return (
     <div className='lp-wrap'>
-      {showRadialGlow && (
+      {showRadialGlow === true && (
         <>
-          <RadialGlow top='-15vw' left='-10vw' />
-          <RadialGlow top='-15vw' right='-10vw' />
-          <RadialGlow bottom='-15vw' right='-15vw' />
-          <RadialGlow top='20vh' right='-15vw' />
+          <RadialGlowSVG style={{ top: '-15vw', left: '-10vw', ...radialGlowStyles }} />
+          <RadialGlowSVG style={{ top: '-15vw', right: '-10vw', ...radialGlowStyles }} />
+          <RadialGlowSVG style={{ bottom: '-15vw', right: '-15vw', ...radialGlowStyles }} />
+          <RadialGlowSVG style={{ top: '10vh', right: '-15vw', ...radialGlowStyles }} />
         </>
       )}
       <div className='inner'>
@@ -32,32 +41,25 @@ export const LandingPage: FC = () => {
           <p className='lp-p'>Start your CS journey today</p>
 
           <div className='media-wrap'>
-            <Link href='https://discord.gg/McY7QFHN'>
-              <a>
-                <Image src='/svgs/remind-logo.svg' alt='' width='40px' height='40px' />
-              </a>
-            </Link>
-            <Link href='https://github.com/crhsidea'>
-              <a>
-                <Image src='/svgs/github-logo.svg' alt='' width='40px' height='40px' />{' '}
-              </a>
-            </Link>
-            <Link href='https://discord.gg/McY7QFHN'>
-              <a>
-                <Image src='/svgs/discord-logo.svg' alt='' width='40px' height='40px' />
-              </a>
-            </Link>
+            <a href='https://discord.gg/McY7QFHN' target='_blank' rel='noreferrer'>
+              <RemindLogoIcon className='media-svg' />
+            </a>
+            <a href='https://github.com/crhsidea' target='_blank' rel='noreferrer'>
+              <GithubLogoIcon className='media-svg' />
+            </a>
+            <a
+              href='https://discord.gg/McY7QFHN'
+              target='_blank'
+              rel='noreferrer'
+              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            >
+              <DiscordLogoIcon className='media-svg' style={{ width: '44px' }} />
+            </a>
           </div>
         </div>
-        {!hidePhoneSVG && (
+        {hidePhoneSVG === false && (
           <div className='phone-wrap'>
-            <Image
-              className='phone'
-              src='/svgs/iphone-12.svg'
-              alt=''
-              layout='fill'
-              priority={true}
-            />
+            <IPhone12Icon className='iphone-svg' screenSrc='/imgs/iphone-screen.png' />
           </div>
         )}
 

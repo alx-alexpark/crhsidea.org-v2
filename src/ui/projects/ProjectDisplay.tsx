@@ -7,11 +7,15 @@ import { wrap } from '../../utils';
 import { useIsAtScreenTop } from '../../hooks/useIsAtScreenTop';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
+/**
+ * verticalImgSrc recieves priority over imgSrc when screen is larger
+ *  */
 export interface Project {
   name: string;
   description: string;
   date: Date;
   imgSrc: string;
+  verticalImgSrc?: string;
   competitionName: string;
   won?: boolean;
   awardName?: string;
@@ -55,6 +59,9 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
 
   const displayedProject = projects[page];
 
+  // use vertical image on larger screen due to layout
+  const imageSrc = (!isMobile && displayedProject.verticalImgSrc) || displayedProject.imgSrc;
+
   return (
     <div className='project-display-wrap' ref={projectDisplayRef}>
       <ProjectContent
@@ -66,7 +73,7 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
       />
       <ProjectImage
         customKey={displayedProject.name + 'image'}
-        src={displayedProject.imgSrc}
+        src={imageSrc}
         horizontal={isMobile}
       />
       <ProjectBanner

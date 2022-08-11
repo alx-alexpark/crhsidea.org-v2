@@ -107,6 +107,7 @@ const projects: Project[] = [
     description: 'Discover volunteering opportunities for Nonprofit Organizations with Outreach!',
     imgSrc:
       'https://camo.githubusercontent.com/956d72a0d745df7d26dd27b093ba1cd1896beee00392b285f79f5817f5df97ec/68747470733a2f2f692e696d6775722e636f6d2f6a616574714b722e706e67',
+    verticalImgSrc: '/imgs/projects/outreach-vertical.png',
     competitionName: 'Explore Hacks',
     date: new Date(),
     awardName: 'Runner Ups',

@@ -41,7 +41,7 @@ export const LandingPage: FC = () => {
           <p className='lp-p'>Start your CS journey today</p>
 
           <div className='media-wrap'>
-            <a href='https://www.remind.com/join/crhside' target='_blank' rel='noreferrer'>
+            <a href='https://www.remind.com/join/crhsidea23' target='_blank' rel='noreferrer'>
               <RemindLogoIcon className='media-svg' />
             </a>
             <a href='https://github.com/crhsidea' target='_blank' rel='noreferrer'>

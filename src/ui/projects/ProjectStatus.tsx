@@ -12,7 +12,7 @@ export const ProjectStatus: FC<ProjectStatusProps> = ({ status, awardName }) => 
         {status.toUpperCase()}
       </div>
 
-      <span>{awardName}</span>
+      <span>{awardName !== '' ? awardName : 'The effort is what counts!'}</span>
     </div>
   );
 };

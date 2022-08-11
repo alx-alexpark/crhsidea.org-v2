@@ -61,6 +61,8 @@ export const ProjectDisplay: FC<ProjectDisplayProps> = ({ projects }) => {
         horizontal={isMobile}
         projectDesc={displayedProject.description}
         projectName={displayedProject.name}
+        awardName={displayedProject.awardName || ''}
+        won={Boolean(displayedProject.won)}
       />
       <ProjectImage
         customKey={displayedProject.name + 'image'}
@@ -97,7 +99,9 @@ const ProjectContent: FC<{
   projectName: string;
   projectDesc: string;
   horizontal: boolean;
-}> = ({ projectName, projectDesc, horizontal }) =>
+  won: boolean;
+  awardName: string;
+}> = ({ projectName, projectDesc, horizontal, won, awardName }) =>
   horizontal ? (
     <div style={{ position: 'relative' }}>
       <div className='pd-content-wrap'>
@@ -105,14 +109,14 @@ const ProjectContent: FC<{
 
         <p className='pd-desc'>{projectDesc}</p>
 
-        <ProjectStatus status='winner' />
+        <ProjectStatus status={won ? 'winner' : 'we tried'} awardName={awardName} />
       </div>
 
       <AnimatePresence>
         <motion.div
           key={projectName}
           animate={{ x: '100%' }}
-          transition={{ bounce: false, duration: 1.3 }}
+          transition={{ bounce: false, duration: 1.3, delay: 0.1 }}
           style={{
             position: 'absolute',
             width: '100%',
@@ -140,7 +144,7 @@ const ProjectContent: FC<{
 
           <p className='pd-desc'>{projectDesc}</p>
 
-          <ProjectStatus status='winner' />
+          <ProjectStatus status={won ? 'winner' : 'we tried'} awardName={awardName} />
         </motion.div>
       </AnimatePresence>
     </div>

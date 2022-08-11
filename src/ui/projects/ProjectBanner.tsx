@@ -38,7 +38,9 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({
         <div className='pd-submission-inner'>
           <h2 className='pd-submission-title'>
             {'Submitted to '}
-            <span className='pd-submission-comp-name'>{competitionName}</span>
+            <a href={competitionURL} target='_blank' rel='noreferrer'>
+              <span className='pd-submission-comp-name'>{competitionName}</span>
+            </a>
           </h2>
           <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
             <span>{'VIEW HACKATHON'}</span>
@@ -49,7 +51,7 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({
           <motion.div
             key={competitionName}
             animate={{ x: '100%' }}
-            transition={{ bounce: false, duration: 1.5 }}
+            transition={{ bounce: false, duration: 1, delay: 0.2 }}
             style={{
               position: 'absolute',
               width: '100%',
@@ -73,7 +75,9 @@ export const ProjectBanner: FC<ProjectBannerProps> = ({
         >
           <h2 className='pd-submission-title'>
             {'Submitted to '}
-            <span className='pd-submission-comp-name'>{competitionName}</span>
+            <a href={competitionURL} target='_blank' rel='noreferrer'>
+              <span className='pd-submission-comp-name'>{competitionName}</span>
+            </a>
           </h2>
           <a href={competitionURL} target='_blank' rel='noreferrer' className='view-hack'>
             <span>{'VIEW HACKATHON'}</span>

@@ -48,7 +48,7 @@ export const LandingPage: FC = () => {
               <GithubLogoIcon className='media-svg' />
             </a>
             <a
-              href='https://discord.gg/McY7QFHN'
+              href='https://discord.gg/3EM4Spp5eK'
               target='_blank'
               rel='noreferrer'
               style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
